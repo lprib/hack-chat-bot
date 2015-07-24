@@ -2,8 +2,8 @@ var textCommand = function(text) {
     this.text = text;
     
     this.eval = function(data, chatConnection) {
-    text.replace(%nick%, data.nick);
-    chatConnection.sendMessage(this.text);
+    parsedText = this.text.replace("%nick%", data.nick);
+    chatConnection.sendMessage(parsedText);
     }
     this.help = "Takes no arguments.";
 
