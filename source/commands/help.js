@@ -12,6 +12,6 @@ help.eval = function(data, chatConnection, commands, config) {
 		chatConnection.sendMessage("unknown command: " + data.arguments[0]);
 	}
 }
-help.help = "Usage: help <command>\nDisplays information and usage about a command."
+help.help = "Usage: help <command>\nDisplays information and usage about a command.";
 
 module.exports = {help: help, h: help};
