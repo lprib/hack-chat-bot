@@ -1,7 +1,7 @@
 {
 	"nickname": "JaxBot#JaxBot",
 	"channel": "programming",
-	"trigger": "/",
+	"trigger": ".",
 	"url": "wss://hack.chat/chat-ws:22",
     "banned": []
 }
