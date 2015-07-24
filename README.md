@@ -8,3 +8,4 @@ To run:
 + execute `node main.js`
 
 Admin commands (and normal commands) can be typed into the node console.  
+Credit to M4GNV5 for [original source](https://github.com/M4GNV5/Hack.ChatBot)
