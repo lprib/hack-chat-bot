@@ -1,7 +1,13 @@
 {
-	"nickname": "JaxBot#JaxBot",
+	"nickname": "JaxBot",
 	"channel": "programming",
+<<<<<<< HEAD
 	"trigger": ".",
 	"url": "wss://hack.chat/chat-ws",
     "banned": []
+=======
+	"trigger": "\",
+	"url": "wss://hack.chat/chat-ws:22",
+    	"banned": []
+>>>>>>> 993fc53c7f98574c8ad6d18dbf465788fd220591
 }
