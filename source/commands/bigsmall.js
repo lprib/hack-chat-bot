@@ -4,8 +4,8 @@ bigsmall.eval = function(data, chatConnection) {
 	var output = "$";
  
     for (i = 0; i < data.argText.length; i++) {
-        if (data.argText.charAt(i) == ' ') {
-            output += "\\ \\ \\ ";
+        if (data.argText.charAt(i) == ' ') { //if chatacter is a space, insert katex space in output
+            output += "\\ \\ ";
         } else {
             if (i % 2 == 0) { //if divisible by 2 (every other one)
                 output += "\\huge " + data.argText.charAt(i) + " ";

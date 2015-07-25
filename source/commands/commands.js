@@ -3,7 +3,7 @@ printCommands = {};
 printCommands.eval = function(data, chatConnection, commands, config) {
 	commandList = "";
 	for(var key in commands) {
-        if(!commands[key].hidden) {
+        if(!commands[key].hidden) { //if command is not hidden
 		  commandList += config.trigger + key + ", ";
         }
 	}
@@ -11,4 +11,4 @@ printCommands.eval = function(data, chatConnection, commands, config) {
 	printCommands.help = "All commands start with " + config.trigger + "\nUsage: commands\nLists bot creator and available commands."
 }
 
-module.exports = {commands: printCommands};
+module.exports = {};

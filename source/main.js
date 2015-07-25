@@ -10,8 +10,10 @@ var config = require("./config.json");
 
 commands = {};
 
+//websocket connection to hack.chat
 var chatConnection = new ChatConnection(config.url, config.nickname, config.channel);
 
+//used for admin conole input
 var consoleInterface = ReadLine.createInterface(process.stdin, process.stdout);
 
 //read all of the files in the /commands/ directory
@@ -40,18 +42,21 @@ FileSystem.readdir("./commands", function(error, files) {
 	delete commands.eval; //remove weird command that causes problems...
 });
 
-
+//called whenever a message is sent through the chat
 var parseMessage = function(data, acceptHiddenCommands) {
+    //if message doesnt begin with the trigger
 	if(data.text.indexOf(config.trigger) != 0) {
 		return;
 	}
+    //if message sender is banned
     if(config.banned.indexOf(data.nick) > -1)
         return;
 	data.arguments = data.text.split(" ");
 	command = data.arguments[0].substring(config.trigger.length, data.arguments[0].length);
-	data.arguments.splice(0, 1);
-	data.argText = data.arguments.join(" ");
+	data.arguments.splice(0, 1); //remove command from argument
+	data.argText = data.arguments.join(" "); //full message text without command
 	
+    //loop through all command names(keys)
 	for(var key in commands) {
 		if(key == command) {
             if((!acceptHiddenCommands) && (commands[key].hidden))
@@ -63,6 +68,7 @@ var parseMessage = function(data, acceptHiddenCommands) {
 	}
 }
 
+//when command is typed in console
 consoleInterface.on("line", function(line){
 	console.log("console line recieved");
     parseMessage({text: line, nick: "ConsoleInput"}, true);

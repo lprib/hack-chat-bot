@@ -2,12 +2,17 @@ help = {};
 
 help.eval = function(data, chatConnection, commands, config) {
 	if(data.arguments.length == 0) {
-		chatConnection.sendMessage("Usage: help <command>");
-		return;
+        commandList = "";
+        for(var key in commands) {
+            if(!commands[key].hidden) { //if command is not hidden
+		      commandList += config.trigger + key + ", ";
+            }
+        }
+	   chatConnection.sendMessage("$\\large\\color{yellow}{Bot\\ by\\ Jax}$\n(Use help <command name> to get info on a specific command)\nAll commands start with " + config.trigger + "\n\n" + commandList);
+        return;
 	}
-	console.log(data.arguments[0]);
 	if(commands[data.arguments[0]] != null) {
-	chatConnection.sendMessage(commands[data.arguments[0]].help);
+	   chatConnection.sendMessage(commands[data.arguments[0]].help);
 	} else {
 		chatConnection.sendMessage("unknown command: " + data.arguments[0]);
 	}
