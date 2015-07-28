@@ -1,6 +1,6 @@
 {
 	"nickname": " HackBot#123",
-	"channel": "programming",
+	"channel": "botDev",
 	"trigger": ".",
 	"url": "wss://hack.chat/chat-ws",
     "banned": []
