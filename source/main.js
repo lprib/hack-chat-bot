@@ -1,6 +1,5 @@
 //Hack.chat bot by Jax
-//TODO commenting (everything)
-//TODO split main.js into multiple files
+//TODO ok, this file is getting way to big...I need to break it up somehow
 
 var FileSystem = require("fs");
 var Path = require("path");
