@@ -62,7 +62,11 @@ var parseMessage = function(data, acceptHiddenCommands) {
             if((!acceptHiddenCommands) && (commands[key].hidden))
                 return;
 			console.log(key + " detected");
+			try{
 			commands[key].eval(data, chatConnection, commands, config);
+			} catch(exception) {
+				chatConnection.sendMessage("Exception:" + exception.message);
+			}
 			break;
 		}
 	}
