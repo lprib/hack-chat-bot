@@ -8,7 +8,7 @@ help.eval = function(data, chatConnection, commands, config) {
 		      commandList += config.trigger + key + ", ";
             }
         }
-	   chatConnection.sendMessage("$\\large\\color{yellow}{Bot\\ by\\ Jax}$\n(Use help <command name> to get info on a specific command)\nAll commands start with " + config.trigger + "\n\n" + commandList);
+	   chatConnection.sendMessage("$\\large\\color{#0066FF}{Miscellaneous\\ Tasks\\ Bot}$ By @Jax\n(Use help <command name> to get info on a specific command)\nAll commands start with " + config.trigger + "\n\n" + commandList);
         return;
 	}
 	if(commands[data.arguments[0]] != null) {
