@@ -64,7 +64,7 @@ var parseMessage = function(data, acceptHiddenCommands) {
 			try{
 			commands[key].eval(data, chatConnection, commands, config);
 			} catch(exception) {
-				chatConnection.sendMessage("Exception:" + exception.message);
+				chatConnection.sendMessage("Exception: " + exception.message);
 				console.log(exception.stack);
 			}
 			break;
@@ -81,7 +81,6 @@ consoleInterface.on("line", function(line){
 chatConnection.on("chat", function(data) {
 	//if user is authed, allow admin commands
 	if(config.authedTrips.indexOf(data.trip) > -1){
-		console.log("hidden command");
 		parseMessage(data, true);
 	} else {
 		parseMessage(data, false);
