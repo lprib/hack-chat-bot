@@ -2,6 +2,10 @@ alias = {};
 
 alias.eval = function(data, chatConnection, commands) {
 	command = data.arguments[1];
+	if(commands.indexOf(command) > -1) {
+		chatConnection.sendMessage(command + " is not a valid command\nMake sure you use only the command name, not the prefix.");
+		return;
+	}
 	args = data.argText.substring(command.length + data.arguments[0].length + 2, data.argText.length);
 	var newCommand = new aliasCommand(command, args);
 	newCommand.prototype = aliasCommand;
@@ -19,5 +23,5 @@ function aliasCommand(command, text){
 		data.argText = text;
 		commands[command].eval(data, chatConnection, commands, config);
 	}
-	this.help = "alias cmd";
+	this.help = "This is a command made with \"alias\""";
 }
