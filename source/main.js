@@ -50,6 +50,8 @@ var parseMessage = function(data, acceptHiddenCommands) {
 		RecordMessage(data, config);
 		return;
 	}
+	if(data.nick === config.nickname)
+		return;
     //if message sender is banned
     if(config.banned.indexOf(data.nick) > -1)
         return;
