@@ -1,9 +1,0 @@
-{
-	"nickname": " HackBot#123",
-	"channel": "programming",
-	"trigger": ".",
-	"url": "wss://hack.chat/chat-ws",
-    "banned": [],
-	"authedTrips": ["/vQS++"],
-	"users": []
-}
