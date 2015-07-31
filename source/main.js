@@ -3,8 +3,10 @@
 
 var FileSystem = require("fs");
 var Path = require("path");
+var Chalk = require("chalk");
 var ReadLine = require("readline");
 var ChatConnection = require("./chatConnection.js");
+var RecordMessage = require("./recordMessage.js");
 var config = require("./config.json");
 
 commands = {};
@@ -45,6 +47,7 @@ FileSystem.readdir("./commands", function(error, files) {
 var parseMessage = function(data, acceptHiddenCommands) {
     //if message doesnt begin with the trigger
 	if(data.text.indexOf(config.trigger) != 0) {
+		RecordMessage(data, config);
 		return;
 	}
     //if message sender is banned
@@ -60,12 +63,12 @@ var parseMessage = function(data, acceptHiddenCommands) {
 		if(key == command) {
             if((!acceptHiddenCommands) && (commands[key].hidden))
                 return;
-			console.log(data.nick + ": " + key);
+			console.log(Chalk.blue(data.nick + ": ") + Chalk.green(key));
 			try{
 			commands[key].eval(data, chatConnection, commands, config);
 			} catch(exception) {
 				chatConnection.sendMessage("Exception: " + exception.message);
-				console.log(exception.stack);
+				console.log(Chalk.red(exception.stack));
 			}
 			break;
 		}
