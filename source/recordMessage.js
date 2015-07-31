@@ -1,7 +1,7 @@
 function recordMessage(data, config) {
-	if(config.users[data.nick] === undefined)
-		config.users[data.nick] = [];
-	config.users[data.nick].push(data.text);
+	if(config.log[data.nick] === undefined)
+		config.log[data.nick] = [];
+	config.log[data.nick].push(data.text);
 }
 
 module.exports = recordMessage;
