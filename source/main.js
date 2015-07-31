@@ -50,16 +50,19 @@ var parseMessage = function(data, acceptHiddenCommands) {
 		RecordMessage(data, config);
 		return;
 	}
-	if(data.nick === config.nickname)
+	if(data.nick === config.nickname)//dont parse messages from itself
 		return;
     //if message sender is banned
     if(config.banned.indexOf(data.nick) > -1)
         return;
-	data.arguments = data.text.split(" ");
-	command = data.arguments[0].substring(config.trigger.length, data.arguments[0].length);
-	data.arguments.splice(0, 1); //remove command from argument
-	data.argText = data.arguments.join(" "); //full message text without command
+
+	data.argText = data.text.substring(config.trigger.length, data.text.length);
+	data.arguments = data.argText.split(" ");
+	command = data.arguments[0];
+	data.arguments.splice(0, 1);
+	data.argText = data.argText.substring(command.length + 1, data.argText.length);
 	
+	console.log(command);
     //loop through all command names(keys)
 	for(var key in commands) {
 		if(key == command) {
