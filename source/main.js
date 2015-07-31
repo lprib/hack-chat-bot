@@ -69,7 +69,7 @@ var parseMessage = function(data, acceptHiddenCommands) {
 			try{
 			commands[key].eval(data, chatConnection, commands, config);
 			} catch(exception) {
-				chatConnection.sendMessage("Exception: " + exception.message);
+				chatConnection.sendMessage("Exception: " + exception.message + "\n" + commands[key].help);
 				console.log(Chalk.red(exception.stack));
 			}
 			break;

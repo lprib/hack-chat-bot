@@ -23,5 +23,5 @@ function aliasCommand(command, text){
 		data.argText = text;
 		commands[command].eval(data, chatConnection, commands, config);
 	}
-	this.help = "This is a command made with \"alias\""";
+	this.help = "This is a command made with \"alias\"";
 }
