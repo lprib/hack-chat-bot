@@ -7,4 +7,4 @@ sentence.eval = function(data, chatConnection) {
 }
 sentence.help = "Usage: sentence <text>\nUses the rant library (http://berkin.me/rant/ )on <text>"
 
-module.exports = {sentence: sentence};
+module.exports = {sentence: sentence, rant: sentence};
