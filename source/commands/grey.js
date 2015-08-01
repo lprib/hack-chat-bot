@@ -4,7 +4,7 @@ grey.colors = ["#050000", "#151010", "#252020", "#353030", "#454040",
 "#b5b0b0", "#c5c0c0", "#d5d0d0", "#e5e0e0", "#f5f0f0"];
 
 grey.eval = function(data, chatConnection) {
-	data.argText = data.argText.replace(/[&%$#_{}\\~^]/g, "");
+	data.argText = data.argText.replace(/[&%$#_{}\\~^?]/g, "");
 	
 	var output = "$";
     var colorIndex = 0;

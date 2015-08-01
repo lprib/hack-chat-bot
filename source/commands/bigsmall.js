@@ -1,7 +1,7 @@
 bigsmall = {};
 
 bigsmall.eval = function(data, chatConnection) {
-	data.argText = data.argText.replace(/[&%$#_{}\\~^]/g, "");
+	data.argText = data.argText.replace(/[&%$#_{}\\~^?]/g, "");
 
 	
 	var output = "$";

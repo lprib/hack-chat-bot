@@ -1,7 +1,7 @@
 rainbow = {};
 rainbow.colors = ["red", "orange", "yellow", "green", "blue", "purple"];
 rainbow.eval = function(data, chatConnection) {
-	data.argText = data.argText.replace(/[&%$#_{}\\~^]/g, "");
+	data.argText = data.argText.replace(/[&%$#_{}\\~^?]/g, "");
 	
 	var output = "$";
     var colorIndex = 0;
