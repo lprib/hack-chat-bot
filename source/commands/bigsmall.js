@@ -1,13 +1,8 @@
-var sanitize = require("../latexSanitize.js");
-
 bigsmall = {};
 
 bigsmall.eval = function(data, chatConnection) {
-	var isSanitized = sanitize(data.argText);
-	if(isSanitized[0]) {
-		chatConnection.sendMessage("String contains forbidden character: " + isSanitized[1]);
-		return;
-	}
+	data.argText = data.argText.replace(/[&%$#_{}\\~^]/g, "");
+
 	
 	var output = "$";
  

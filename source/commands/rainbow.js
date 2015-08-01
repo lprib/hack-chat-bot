@@ -1,13 +1,7 @@
-var sanitize = require("../latexSanitize.js");
-
 rainbow = {};
 rainbow.colors = ["red", "orange", "yellow", "green", "blue", "purple"];
 rainbow.eval = function(data, chatConnection) {
-	var isSanitized = sanitize(data.argText);
-	if(isSanitized[0]) {
-		chatConnection.sendMessage("String contains forbidden character: " + isSanitized[1]);
-		return;
-	}
+	data.argText = data.argText.replace(/[&%$#_{}\\~^]/g, "");
 	
 	var output = "$";
     var colorIndex = 0;
