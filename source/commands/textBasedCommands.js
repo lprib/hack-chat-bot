@@ -19,4 +19,4 @@ android.prototype = textCommand;
 var cat = new textCommand("hack.cat:\nhttps://twitter.com/Corwinasa/status/624507505637396480\ncredit to @MinusGix");
 cat.prototype = textCommand
 
-module.exports = {hello: hello, android: android, ios: android, cat: cat};
+module.exports = {hello: hello, /*android: android, ios: android,*/ cat: cat};
