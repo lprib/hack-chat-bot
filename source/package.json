@@ -1,0 +1,29 @@
+{
+  "name": "hack-chat-bot",
+  "version": "1.0.0",
+  "description": "A bot for hack.chat",
+  "main": "main.js",
+  "dependencies": {
+    "rantjs": "^0.9.7",
+    "chalk": "^1.1.0",
+    "ws": "^0.7.2",
+    "simple-cipher": "^1.0.1",
+    "rot": "^0.1.0",
+    "request": "^2.60.0",
+    "md5": "^2.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JaxForReal/hack-chat-bot.git"
+  },
+  "author": "Jax",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JaxForReal/hack-chat-bot/issues"
+  },
+  "homepage": "https://github.com/JaxForReal/hack-chat-bot#readme"
+}
