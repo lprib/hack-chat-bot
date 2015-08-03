@@ -1,15 +1,15 @@
-base64encode = {}
+base64 = {}
 
-base64encode.eval = function(data, chatConnection) {
-	chatConnection.sendMessage("Encoded text: " + new Buffer(data.argText, "utf-8").toString("base64"));
+base64.eval = function(data, chatConnection) {
+	text = data.argText.substring(data.arguments[0].length + 1, data.argText.length);
+	if(data.arguments[0].toLowerCase() == "encode") {
+		chatConnection.sendMessage("Encoded text: " + new Buffer(text, "utf-8").toString("base64"));
+	}else if(data.arguments[0].toLowerCase() == "decode"){
+		chatConnection.sendMessage("Decoded text: " + new Buffer(text, "base64").toString("utf-8"));
+	} else {
+		chatConnection.sendMessage(base64.help);
+	}
 }
-base64encode.help = "Usage: base64encode <text>\nConverts <text> (as a utf-8 string) to base64";
+base64.help = "Usage: base64 <encode | decode> <text>";
 
-base64decode = {}
-
-base64decode.eval = function(data, chatConnection) {
-	chatConnection.sendMessage("Decoded text: " + new Buffer(data.argText, "base64").toString("utf-8"));
-}
-base64decode.help = "Usage: base64decode <text>\nConverts <text> (as a base64 string) to utf-8";
-
-module.exports = {base64encode: base64encode, base64decode: base64decode};
+module.exports = {base64: base64};
