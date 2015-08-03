@@ -62,13 +62,12 @@ var parseMessage = function(data, acceptHiddenCommands) {
 	data.arguments.splice(0, 1);
 	data.argText = data.argText.substring(command.length + 1, data.argText.length);
 	
-	console.log(command);
     //loop through all command names(keys)
 	for(var key in commands) {
 		if(key == command) {
             if((!acceptHiddenCommands) && (commands[key].hidden))
                 return;
-			console.log(Chalk.blue(data.nick + ": ") + Chalk.green(key));
+			console.log(Chalk.blue(data.nick + ": ") + Chalk.green(key) + " " + Chalk.yellow(data.argText));
 			try{
 			commands[key].eval(data, chatConnection, commands, config);
 			} catch(exception) {
@@ -82,8 +81,7 @@ var parseMessage = function(data, acceptHiddenCommands) {
 
 //when command is typed in console
 consoleInterface.on("line", function(line){
-	console.log("console line recieved");
-    parseMessage({text: line, nick: "ConsoleInput"}, true);
+    parseMessage({text: line, nick: "<console input>"}, true);
 });
 
 chatConnection.on("chat", function(data) {

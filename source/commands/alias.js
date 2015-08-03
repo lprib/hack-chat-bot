@@ -1,6 +1,10 @@
 alias = {};
 
 alias.eval = function(data, chatConnection, commands) {
+	if(commands[data.arguments[0]] != undefined) {
+		chatConnection.sendMessage("Command already exists.");
+		return;
+	}
 	command = data.arguments[1];
 	console.log(command)
 	/*if(commands.indexOf(command) > -1) {
