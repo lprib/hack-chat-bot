@@ -4,13 +4,14 @@
   "description": "A bot for hack.chat",
   "main": "main.js",
   "dependencies": {
-    "rantjs": "^0.9.7",
+    "base32": "0.0.6",
     "chalk": "^1.1.0",
-    "ws": "^0.7.2",
-    "simple-cipher": "^1.0.1",
-    "rot": "^0.1.0",
+    "md5": "^2.0.0",
+    "rantjs": "^0.9.7",
     "request": "^2.60.0",
-    "md5": "^2.0.0"
+    "rot": "^0.1.0",
+    "simple-cipher": "^1.0.1",
+    "ws": "^0.7.2"
   },
   "devDependencies": {},
   "scripts": {
