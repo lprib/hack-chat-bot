@@ -1,0 +1,9 @@
+{
+	"nickname": "Bot",
+	"channel": "programming",
+	"trigger": "/",
+	"url": "wss://hack.chat/chat-ws",
+    "banned": [],
+	"authedTrips": ["/vQS++"],
+	"log": {}
+}
